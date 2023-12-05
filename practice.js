@@ -206,7 +206,7 @@ const carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables.
 */
 
-//Code Here
+const {color, make, model, year} = carDetails;
 
 /// ////////////// PROBLEM 12 ///////////////////
 
@@ -217,7 +217,7 @@ const carDetails = {
 */
 
 function greeting(obj) {
-  //Code Here
+  const {firstName, lastName, title} = obj;
 
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -234,7 +234,10 @@ function greeting(obj) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+function totalPopulation(obj) {
+  const {utah, california, texas, arizona} = obj;
+  return utah + california + texas + arizona;
+}
 
 /// ////////////// PROBLEM 14 ///////////////////
 
@@ -246,7 +249,12 @@ function greeting(obj) {
   Return false otherwise.
 */
 
-//Code Here
+function usCanadaBorder(latLong) {
+  if((latLong[0] === 49) && (-123 < latLong[1]) && (latLong[1] < -95)) {
+    return true;
+  }
+  return false;
+}
 
 /// ////////////// PROBLEM 15 ///////////////////
 
@@ -292,7 +300,19 @@ const employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+function employeeUpdater() {
+  for (let employee = 0; employee < employees.length; employee++) {
+    // (employee in employees) {
+    if(employees[employee].firstName === 'Theo') {
+      console.log('found theo');
+      delete employees[employee];
+    } else if (employees[employee].firstName === 'Lorie') {
+      employees[employee].department = 'HR';
+    }
+  }
+  console.log(employees);
+  return employees;
+}
 
 /// ////////////// PROBLEM 16 ///////////////////
 
@@ -319,8 +339,8 @@ const cat = {
 */
 
 //Code Here
-let grumpyActivity;
-let fluffy2ndFriend;
+let grumpyActivity = cat.catFriends[0].activities[1];
+let fluffy2ndFriend = cat.catFriends[1].name;
 
 /// ////////////// PROBLEM 17 ///////////////////
 
@@ -358,7 +378,11 @@ const myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner() {
+  for(let acc = 0; acc < myCar.accidents.length; acc++) {
+    myCar.accidents[acc].atFaultForAccident = false;
+  }
+}
 
 /// ////////////// PROBLEM 18 ///////////////////
 
@@ -376,7 +400,15 @@ const myCar = {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
+function largeNumbers({first, second, third}) {
+  let smallest = first;
+  if (second < smallest) {
+    smallest = second;
+  } else if (third < smallest) {
+    smallest = third;
+  }
+  return smallest;
+}
 
 /// ////////////// PROBLEM 19 ///////////////////
 
@@ -386,4 +418,13 @@ const myCar = {
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups({a,b,c}) {
+  let longest = a;
+  if (b.length > a.length) {
+    longest = b;
+  } 
+  if (c.length > longest.length) {
+    longest = c;
+  }
+  return longest;
+}
