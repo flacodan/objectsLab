@@ -304,8 +304,7 @@ function employeeUpdater() {
   for (let employee = 0; employee < employees.length; employee++) {
     // (employee in employees) {
     if(employees[employee].firstName === 'Theo') {
-      console.log('found theo');
-      delete employees[employee];
+      employees.splice(employee, 1);
     } else if (employees[employee].firstName === 'Lorie') {
       employees[employee].department = 'HR';
     }
